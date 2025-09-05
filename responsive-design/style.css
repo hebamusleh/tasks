@@ -327,3 +327,12 @@ ul {
   cursor: pointer;
   color: var(--white-color);
 }
+
+/* main content style */
+.main-container {
+  padding: 20px;
+  background-color: var(--white-color);
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 400px;
+}
