@@ -36,11 +36,6 @@ body {
   font-size: 14px;
   flex-wrap: wrap;
 }
-/* .first-header-nav-item nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-} */
 
 /* second header style  */
 .second-header {
@@ -155,7 +150,6 @@ body {
   width: 100%;
   color: var(--secondary-color);
 }
-
 
 .second-header-container .second-header-nav .second-header-nav-search button {
   background: var(--primary-color);
@@ -357,6 +351,13 @@ ul {
   gap: 8px;
 }
 
+.payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 /* main content style */
 .main-container {
   padding: 20px;
@@ -365,9 +366,121 @@ ul {
   margin: 0 auto;
   min-height: 400px;
 }
-.payment-methods {
+
+.content-wrapper {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
+}
+@media (min-width: 798px) {
+  .content-wrapper {
+    flex-wrap: nowrap;
+  }
+}
+
+aside {
+  flex-basis: 100%;
+}
+@media (min-width: 798px) {
+  aside {
+    flex-basis: 22%;
+  }
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+@media (min-width: 576px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .card-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-wrapper {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+main {
+  width:100%;
+}
+main .card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--white-color);
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s all ease-in-out;
+  width: calc(100% - 20px);
+  height:calc(100% - 20px);
+}
+
+/* @media (min-width: 798px) {
+  main .card {
+    flex-basis: 20%;
+  }
+} */
+
+main .card .card--image {
+  border-radius: 6px;
+}
+main .card .card--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 6px;
+}
+
+main .card .card--info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+main .card .card--info h4,
+h5 {
+  padding: 0;
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+main .card .card--info h4 {
+  padding: 0;
+  margin: 0;
+  color: var(--black-color);
+}
+main .card .when-hover {
+  display: none;
+}
+main .card:hover .card--info .when-hover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+main .card .card--info .when-hover button {
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: var(--primary-color);
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white-color);
+  cursor: pointer;
+  width: 70%;
+}
+main .card .card--info .when-hover button:hover {
+  opacity: 70%;
 }
