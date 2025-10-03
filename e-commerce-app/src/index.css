@@ -1,4 +1,10 @@
 @import "tailwindcss";
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@layer components {
+  .container {
+    @apply max-w-[1170px] mx-auto px-2.5 md:px-0;
+  }
+}
