@@ -32,3 +32,8 @@ export interface IProductCard {
   reviewsNum: number;
   colorsOption?: boolean;
 }
+
+export interface ICategoryCard {
+  title: string;
+  icon: React.ReactNode;
+}
