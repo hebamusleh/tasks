@@ -1,14 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import type { IDropdown } from "../../../types";
 import { ArrowIcon } from "../../icons";
 
-interface DropdownProps {
-  options: string[];
-  placeholder?: string | React.ReactNode;
-  onSelect: (value: string) => void;
-  className?: string;
-}
-
-const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown: React.FC<IDropdown> = ({
   options,
   placeholder = "Select...",
   onSelect,

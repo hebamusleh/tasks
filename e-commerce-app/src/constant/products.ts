@@ -1,0 +1,151 @@
+import { v4 as uuidv4 } from "uuid";
+import type { IProductCard } from "../types";
+
+export const flashProducts: IProductCard[] = [
+  {
+    id: uuidv4(),
+    cover: "/assets/images/playstashine.png",
+    oldPrice: 160,
+    price: 120,
+    reviewsNum: 88,
+    title: "HAVIT HV-G92 Gamepad",
+    offer: 40,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/keyboard.png",
+    oldPrice: 1100,
+    price: 960,
+    reviewsNum: 50,
+    title: "AK-900 Wired Keyboard",
+    offer: 35,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/lcd.png",
+    oldPrice: 400,
+    price: 370,
+    reviewsNum: 99,
+    title: "IPS LCD Gaming Monitor",
+    offer: 30,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/canaba.png",
+    oldPrice: 400,
+    price: 375,
+    reviewsNum: 88,
+    title: "S-Series Comfort Chair ",
+    offer: 25,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/playstashine.png",
+    oldPrice: 160,
+    price: 120,
+    reviewsNum: 88,
+    title: "HAVIT HV-G92 Gamepad",
+    offer: 40,
+  },
+];
+
+export const bestSellingProducts: IProductCard[] = [
+  {
+    id: uuidv4(),
+    cover: "/assets/images/jacket.png",
+    oldPrice: 360,
+    price: 260,
+    reviewsNum: 88,
+    title: "The north coat",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/bag.png",
+    oldPrice: 11500,
+    price: 960,
+    reviewsNum: 65,
+    title: "Gucci duffle bag",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/cpu.png",
+    oldPrice: 170,
+    price: 160,
+    reviewsNum: 90,
+    title: "RGB liquid CPU Cooler",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/bookself.png",
+    price: 360,
+    reviewsNum: 88,
+    title: "Small BookSelf",
+  },
+];
+
+export const ourProducts: IProductCard[] = [
+  {
+    id: uuidv4(),
+    cover: "/assets/images/dry-dog-food.png",
+    price: 100,
+    reviewsNum: 90,
+    title: "Breed Dry Dog Food",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/dry-dog-food.png",
+    price: 360,
+    reviewsNum: 90,
+    title: "CANON EOS DSLR Camera",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/dry-dog-food.png",
+    price: 190,
+    reviewsNum: 90,
+    title: "ASUS FHD Gaming Laptop",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/dry-dog-food.png",
+    price: 500,
+    reviewsNum: 90,
+    title: "Curology Product Set ",
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/car.png",
+    price: 960,
+    reviewsNum: 90,
+    title: "Kids Electric Car",
+    colorsOption: true,
+    newItem: true,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/shoes.png",
+    price: 1160,
+    reviewsNum: 67,
+    title: "Jr. Zoom Soccer Cleats",
+    colorsOption: true,
+    newItem: true,
+  },
+   {
+    id: uuidv4(),
+    cover: "/assets/images/GP11.png",
+    price: 660,
+    reviewsNum: 80,
+    title: "GP11 Shooter USB Gamepad",
+    colorsOption: true,
+    newItem: true,
+  },
+   {
+    id: uuidv4(),
+    cover: "/assets/images/jacket-2.png",
+    price: 960,
+    reviewsNum: 90,
+    title: "Quilted Satin Jacket",
+    colorsOption: true,
+    newItem: true,
+  }
+];
