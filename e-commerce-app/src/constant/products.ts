@@ -47,6 +47,42 @@ export const flashProducts: IProductCard[] = [
     title: "HAVIT HV-G92 Gamepad",
     offer: 40,
   },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/keyboard.png",
+    oldPrice: 1100,
+    price: 960,
+    reviewsNum: 50,
+    title: "AK-900 Wired Keyboard",
+    offer: 35,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/lcd.png",
+    oldPrice: 400,
+    price: 370,
+    reviewsNum: 99,
+    title: "IPS LCD Gaming Monitor",
+    offer: 30,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/canaba.png",
+    oldPrice: 400,
+    price: 375,
+    reviewsNum: 88,
+    title: "S-Series Comfort Chair ",
+    offer: 25,
+  },
+  {
+    id: uuidv4(),
+    cover: "/assets/images/playstashine.png",
+    oldPrice: 160,
+    price: 120,
+    reviewsNum: 88,
+    title: "HAVIT HV-G92 Gamepad",
+    offer: 40,
+  },
 ];
 
 export const bestSellingProducts: IProductCard[] = [
@@ -130,7 +166,7 @@ export const ourProducts: IProductCard[] = [
     colorsOption: true,
     newItem: true,
   },
-   {
+  {
     id: uuidv4(),
     cover: "/assets/images/GP11.png",
     price: 660,
@@ -139,7 +175,7 @@ export const ourProducts: IProductCard[] = [
     colorsOption: true,
     newItem: true,
   },
-   {
+  {
     id: uuidv4(),
     cover: "/assets/images/jacket-2.png",
     price: 960,
@@ -147,5 +183,5 @@ export const ourProducts: IProductCard[] = [
     title: "Quilted Satin Jacket",
     colorsOption: true,
     newItem: true,
-  }
+  },
 ];
