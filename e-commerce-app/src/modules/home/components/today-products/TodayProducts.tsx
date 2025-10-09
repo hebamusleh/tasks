@@ -19,6 +19,9 @@ const TodayProducts = () => {
           nextEl: ".custom-next-button",
           prevEl: ".custom-prev-button",
         }}
+        autoplay={{
+          delay: 3000,
+        }}
         loop={true}
         breakpoints={{
           375: {
