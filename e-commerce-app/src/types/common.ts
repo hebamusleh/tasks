@@ -43,3 +43,7 @@ export interface ICTACard {
   subTitle: string;
   icon: React.ReactNode;
 }
+
+export interface ITitleHeading {
+  title: string;
+}
