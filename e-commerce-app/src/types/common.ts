@@ -37,3 +37,9 @@ export interface ICategoryCard {
   title: string;
   icon: React.ReactNode;
 }
+
+export interface ICTACard {
+  title: string;
+  subTitle: string;
+  icon: React.ReactNode;
+}
