@@ -9,7 +9,7 @@ const MonthProducts = () => {
         <TitleHeading title="This Month" />
         <SubHeader />
       </div>
-      <div className="flex items-center justify-center gap-[30px]">
+      <div className="flex items-center justify-center gap-[30px] flex-wrap">
         {bestSellingProducts.map((item) => (
           <ProductCard {...item} key={item.id} />
         ))}

@@ -38,15 +38,19 @@ const TodayProducts = () => {
           },
           768: {
             slidesPerView: 2.5,
+            spaceBetween: 30,
           },
           1024: {
-            slidesPerView: 3.5,
+            slidesPerView: 4,
+            spaceBetween: 30,
           },
           1280: {
-            slidesPerView: 4.5,
+            slidesPerView: 4,
+            spaceBetween: 30,
           },
           1400: {
-            slidesPerView: 4.5,
+            slidesPerView: 4,
+            spaceBetween: 30,
           },
         }}
       >
