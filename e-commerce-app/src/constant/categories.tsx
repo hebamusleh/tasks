@@ -10,7 +10,7 @@ import {
   SecureIcon,
   SmartWatchIcon,
 } from "../components";
-import type { ICategoryCard, ICTACard } from "../types";
+import type { ICategoryCard, ICircleTime, ICTACard } from "../types";
 
 export const categories: ICategoryCard[] = [
   {
@@ -93,5 +93,24 @@ export const ctaData: ICTACard[] = [
     icon: <SecureIcon />,
     title: "MONEY BACK GUARANTEE",
     subTitle: "We reurn money within 30 days",
+  },
+];
+
+export const data: ICircleTime[] = [
+  {
+    title: "Hours",
+    number: 23,
+  },
+  {
+    title: "Days",
+    number: 20,
+  },
+  {
+    title: "Minutes",
+    number: 20,
+  },
+  {
+    title: "Seconds",
+    number: 20,
   },
 ];

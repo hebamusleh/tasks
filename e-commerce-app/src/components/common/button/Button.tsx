@@ -8,7 +8,7 @@ type Props = {
 const Button = ({ children, onClick, className, type = "button" }: Props) => {
   return (
     <button
-      className={`px-12 py-4 rounded-[4px] text-[#FAFAFA] bg-[#DB4444] font-medium text-center ${className} `}
+      className={`px-12 py-4 rounded-[4px] text-[#FAFAFA] bg-[#DB4444] font-medium text-center cursor-pointer ${className} `}
       onClick={onClick}
       type={type}
     >

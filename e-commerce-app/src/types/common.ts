@@ -49,3 +49,8 @@ export interface ICTACard {
 export interface ITitleHeading {
   title: string;
 }
+
+export interface ICircleTime {
+  title: string;
+  number: number;
+}
