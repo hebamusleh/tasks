@@ -34,6 +34,7 @@ export interface IProductCard {
 }
 
 export interface ICategoryCard {
+  id:string;
   title: string;
   icon: React.ReactNode;
 }

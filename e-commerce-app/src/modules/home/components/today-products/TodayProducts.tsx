@@ -1,6 +1,6 @@
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ProductCard, TitleHeading } from "../../../../components";
+import { Button, ProductCard, TitleHeading } from "../../../../components";
 import { flashProducts } from "../../../../constant";
 import SubHeader from "./SubHeader";
 
@@ -56,6 +56,10 @@ const TodayProducts = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="w-full flex items-center justify-center mt-20">
+        <Button>View All Product</Button>
+      </div>
     </div>
   );
 };
