@@ -24,7 +24,7 @@ const ProductCard: React.FC<IProductCard> = ({
         </div>
         {/* content on image  */}
         <div className="h-full w-full flex flex-col justify-between">
-          <div className="flex justify-between p-3">
+          <div className={`flex p-3 ${!offer && ! newItem ? "justify-end":"justify-between"}`}>
             {/* offer  */}
             {offer && (
               <div className="p-3 bg-[#DB4444] rounded-[4px] text-xs text-white h-[26px] flex items-center justify-center">

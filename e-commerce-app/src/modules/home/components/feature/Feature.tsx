@@ -24,6 +24,8 @@ const Feature = () => {
               title="Women’s Collections"
               description="Featured woman collections that give you another vibe."
               image="/assets/images/woman.jpg"
+              flip
+              imageWrapper="-right-[60px]"
             />
           </div>
           <div className="flex-1 flex gap-[30px] flex-col md:flex-row">
@@ -32,6 +34,7 @@ const Feature = () => {
               title="Speakers"
               description="Amazon wireless speakers"
               image="/assets/images/headphone-2.png"
+              imageWrapper="h-[222px]"
             />
             <FeatureCard
               className="!h-[286px]"

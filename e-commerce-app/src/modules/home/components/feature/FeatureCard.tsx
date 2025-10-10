@@ -3,19 +3,29 @@ const FeatureCard = ({
   title,
   description,
   image,
+  flip,
+  imageWrapper,
 }: {
   className?: string;
   title: string;
   description: string;
   image: string;
+  flip?: boolean;
+  imageWrapper?: string;
 }) => {
   return (
     <div className={`w-full rounded-[4px] relative bg-black ${className}`}>
-      <div className="absolute inset-0 w-full h-full">
+      <div
+        className={`absolute  w-full h-full ${
+          imageWrapper ? imageWrapper : "inset-0"
+        }`}
+      >
         <img
           src={image}
           alt="products"
-          className="w-full h-full object-contain"
+          className={`w-full h-full object-contain ${
+            flip ? "-scale-x-100" : ""
+          }`}
         />
       </div>
 
