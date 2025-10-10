@@ -1,30 +1,33 @@
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AppleIcon, VectorIocn } from "../../../../components";
 
 const HeroSwiper = () => {
   return (
-    <div className="max-w-[892px] w-full md:border-l-[.5px] md:border-black/30 md:pl-5 pt-10">
+    <div className="max-w-[892px] w-full lg:border-l-[.5px] lg:border-black/30 md:pl-5 pt-10">
       <Swiper
         className="w-full"
         slidesPerView={1}
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         pagination={{
           clickable: true,
+        }}
+        autoplay={{
+          delay: 2000,
         }}
       >
         {[...Array(5)].map((_, index) => (
           <SwiperSlide key={index}>
             <div className="bg-black h-full p-5">
-              <div className="flex justify-between gap-10">
-                <div className="flex flex-col gap-6 max-w-[294px] pl-5 pt-5">
+              <div className="flex justify-between gap-10 flex-col md:flex-row">
+                <div className="flex flex-col gap-6 md:max-w-[294px] pl-5 pt-5">
                   <div className="flex gap-2 items-center">
                     <div className="text-5xl">
                       <AppleIcon />
                     </div>
                     <div className="text-white">iPhone 14 Series</div>
                   </div>
-                  <div className="text-5xl font-semibold text-white">
+                  <div className="text-3xl md:text-5xl text-center font-semibold text-white">
                     Up to 10% off Voucher
                   </div>
                   <div className="flex items-center gap-2">

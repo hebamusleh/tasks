@@ -33,12 +33,14 @@ const CTACategories = () => {
             <Button className="!bg-[#00FF66]">Buy Now!</Button>
           </div>
         </div>
-        <div className="flex-1 max-h-[330px] py-[70px]  md:py-0">
-          <img
-            src="/assets/images/music.png"
-            alt="music"
-            className="w-full h-full"
-          />
+        <div className="flex-1 max-h-[330px] py-[70px]  md:py-0 ">
+          <div className="rounded-full p-3 drop-shadow-[0_0_40px_rgba(250,250,250,0.3)]">
+            <img
+              src="/assets/images/music.png"
+              alt="music"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
         </div>
       </div>
     </div>

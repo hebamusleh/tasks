@@ -33,7 +33,7 @@ const navItems = [
 ];
 const ASide = () => {
   return (
-    <div className="w-[217px] hidden md:block">
+    <div className="w-[217px] hidden lg:block">
       <div className="pr-5 pt-10 flex flex-col gap-4">
         {navItems.map((item) => (
           <div className="flex justify-between w-full items-center">

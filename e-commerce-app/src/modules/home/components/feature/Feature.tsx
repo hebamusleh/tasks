@@ -6,7 +6,7 @@ const Feature = () => {
     <div className="flex flex-col gap-[60px]">
       <div className="flex flex-col gap-2">
         <TitleHeading title="Featured" />
-        <h2 className="font-semibold text-4xl">New Arrival</h2>
+        <h2 className="title">New Arrival</h2>
       </div>
       <div className="flex gap-[30px] flex-col md:flex-row">
         <div className="flex-1">

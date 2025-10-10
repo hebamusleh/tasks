@@ -8,7 +8,10 @@
 
 @layer components {
   .container {
-    @apply !max-w-[1170px] mx-auto px-2.5 md:px-0;
+    @apply !max-w-[1170px] mx-auto px-5 md:px-0;
+  }
+  .title {
+    @apply font-semibold text-2xl md:text-4xl;
   }
 }
 * {

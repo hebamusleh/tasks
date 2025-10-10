@@ -6,7 +6,7 @@ const Products = () => {
     <div className="border-b-[0.5px] border-black/30 pb-20 flex flex-col gap-[60px]">
       <div>
         <TitleHeading title="This Month" />
-        <h2 className="font-semibold text-4xl">Explore Our Products</h2>
+        <h2 className="title">Explore Our Products</h2>
       </div>
       <div className="flex items-center flex-wrap gap-[30px]">
         {ourProducts.map((item) => (

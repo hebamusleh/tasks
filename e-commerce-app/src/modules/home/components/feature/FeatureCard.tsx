@@ -14,7 +14,7 @@ const FeatureCard = ({
   imageWrapper?: string;
 }) => {
   return (
-    <div className={`w-full rounded-[4px] relative bg-black ${className}`}>
+    <div className={`w-full rounded-[4px] relative bg-black overflow-hidden ${className}`}>
       <div
         className={`absolute  w-full h-full ${
           imageWrapper ? imageWrapper : "inset-0"

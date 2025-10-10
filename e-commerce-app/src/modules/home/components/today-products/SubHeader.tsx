@@ -4,7 +4,7 @@ const SubHeader = () => {
   return (
     <div className="flex justify-between mt-2">
       <div className="flex items-left md:items-end gap-4 md:gap-[87px] flex-col md:flex-row">
-        <h2 className="font-semibold text-4xl">Flash Sales</h2>
+        <h2 className="title">Flash Sales</h2>
         <div className="flex items-center gap-3 justify-center">
           <TimeCard title="Days" number={3} />
           <span className="pt-4">
