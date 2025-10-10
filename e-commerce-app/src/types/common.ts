@@ -34,12 +34,13 @@ export interface IProductCard {
 }
 
 export interface ICategoryCard {
-  id:string;
+  id: string;
   title: string;
   icon: React.ReactNode;
 }
 
 export interface ICTACard {
+  id: string;
   title: string;
   subTitle: string;
   icon: React.ReactNode;

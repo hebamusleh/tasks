@@ -1,4 +1,4 @@
-import { ProductCard, TitleHeading } from "../../../../components";
+import { Button, ProductCard, TitleHeading } from "../../../../components";
 import { ourProducts } from "../../../../constant";
 
 const Products = () => {
@@ -12,6 +12,9 @@ const Products = () => {
         {ourProducts.map((item) => (
           <ProductCard {...item} key={item.id} />
         ))}
+      </div>
+      <div className="w-full flex items-center justify-center mt-20">
+        <Button>View All Product</Button>
       </div>
     </div>
   );
