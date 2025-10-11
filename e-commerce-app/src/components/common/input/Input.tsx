@@ -73,7 +73,7 @@ const Input: React.FC<IInput> = ({
               className={`block min-h-[97px] resize-none overflow-y-auto w-full  border-b-[1px] border-black/70 outline-none py-1 bg-transparent text-black  text-sm md:text-[16px] font-montserrat font-medium placeholder:text-[#3A3941]/60  placeholder:font-medium 
                 transition-all duration-300
                 ${isSecondary ? "h-[300px]" : ""}
-                ${error ? "border-2 border-[#CF2B2B]" : ""}
+                ${error ? "border-b-2 border-[#f00]" : ""}
                 disabled:bg-white disabled:text-[#a9afbe]`}
               {...field}
             />
@@ -85,7 +85,7 @@ const Input: React.FC<IInput> = ({
                 disabled={disabled}
                 placeholder={placeholder || ""}
                 className={`w-full border-b-[1px] border-black/70 outline-none py-1 bg-transparent text-black text-sm md:text-[16px]  font-medium placeholder:text-black/40 placeholder:font-medium transition-all duration-300 ${
-                  error ? "border-2 border-[#CF2B2B]" : ""
+                  error ? "border-b-2 !border-[#f00]" : ""
                 }`}
                 {...props}
                 {...field}

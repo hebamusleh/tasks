@@ -1,15 +1,24 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import type { InferType } from "yup";
 import { Button, GoogleIcon, Input } from "../../../components";
 import { PATHS } from "../../../constant";
+import { signUpSchema } from "../../../utils";
+
+type SignUpFormValues = InferType<typeof signUpSchema>;
 
 const SignUpForm = () => {
   const {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm();
-  const onSubmit = () => {};
+  } = useForm({
+    resolver: yupResolver(signUpSchema),
+  });
+  const onSubmit = (data: SignUpFormValues) => {
+    console.log(data);
+  };
   return (
     <div className="flex flex-col gap-12 h-full justify-center w-full max-w-[400px] py-14 px-5 lg:px-0 lg:py-0">
       <div className="flex flex-col gap-6">
@@ -26,9 +35,9 @@ const SignUpForm = () => {
           />
           <Input
             control={control}
-            name="mail"
+            name="email"
             placeholder="Email or Phone Number"
-            error={errors.mail?.message}
+            error={errors.email?.message}
           />
           <Input
             control={control}
@@ -39,7 +48,7 @@ const SignUpForm = () => {
         </div>
         <div className="flex flex-col gap-4">
           <Button type="submit">Create Account</Button>
-          <Button type="submit" variant="outline">
+          <Button variant="outline">
             <div className="flex gap-2 items-center justify-center">
               <span className="text-2xl">
                 <GoogleIcon />
