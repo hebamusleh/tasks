@@ -3,7 +3,7 @@ import TopFooter from "./TopFooter";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col bg-black mt-14 md:mt-28">
+    <footer className="flex flex-col bg-black">
       <TopFooter />
       <BottomFooter />
     </footer>

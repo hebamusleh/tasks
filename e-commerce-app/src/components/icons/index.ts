@@ -9,6 +9,7 @@ export { default as DeliveryIcon } from "./delivery-icon";
 export { default as EyeIcon } from "./eye-icon";
 export { default as FacIcon } from "./fac-icon";
 export { default as GamingIcon } from "./gaming-icon";
+export { default as GoogleIcon } from "./google-icon";
 export { default as HeadphoneIcon } from "./headphone-icon";
 export { default as HeartIcon } from "./heart-icon";
 export { default as InstaIcon } from "./insta-icon";

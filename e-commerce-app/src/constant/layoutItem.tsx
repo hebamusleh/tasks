@@ -4,11 +4,12 @@ import {
 } from "../components/layout/footer/components";
 import EmailInput from "../components/layout/footer/components/EmailInput";
 import type { IFooterGroup, INavItem } from "../types";
+import { PATHS } from "./paths";
 
 export const navItems: INavItem[] = [
   {
     name: "Home",
-    link: "",
+    link: PATHS.HOME,
   },
   {
     name: "Contact",
@@ -20,7 +21,7 @@ export const navItems: INavItem[] = [
   },
   {
     name: "Sign Up",
-    link: "",
+    link: PATHS.SIGN_UP,
   },
 ];
 

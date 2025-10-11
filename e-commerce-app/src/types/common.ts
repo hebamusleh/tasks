@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Control } from "react-hook-form";
+
 export interface INavItem {
   name: string;
   link: string;
@@ -53,4 +56,35 @@ export interface ITitleHeading {
 export interface ICircleTime {
   title: string;
   number: number;
+}
+
+export interface IInput
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "name"> {
+  name: string;
+  control: Control<any>;
+  label?: string | React.ReactNode;
+  placeholder?: string;
+  type?: string;
+  error?: any;
+  rules?: any;
+  required?: boolean;
+  className?: string;
+  inputClassName?: string;
+  hasSuffix?: boolean;
+  isSecondary?: boolean;
+  disabled?: boolean;
+  labelClassName?: string;
+  customIcon?: React.ReactNode;
+  iconPosition?: "left" | "right";
+}
+
+export interface IErrorMessage {
+  message: string;
+  className?: string;
+}
+
+export interface IAlertMessage {
+  text: string;
+  className?: string;
+  type: "success" | "error";
 }
