@@ -1,2 +1,3 @@
 import { useGetProduct } from "./useGetProduct.hook";
-export { useGetProduct };
+import { useGetProductDetails } from "./useGetProductDetails.hook";
+export { useGetProduct, useGetProductDetails };

@@ -11,3 +11,12 @@ export const getProducts = async (body: IProductsParams) => {
     throw mapAxiosError(e);
   }
 };
+
+export const getProductsDetails = async (id: number) => {
+  try {
+    const res = await axios.get(`/products/${id}`);
+    return res.data;
+  } catch (e) {
+    throw mapAxiosError(e);
+  }
+};

@@ -1,4 +1,5 @@
-import { getProducts } from './products.api';
+import { getProducts , getProductsDetails } from './products.api';
 export {
-    getProducts
+    getProducts,
+    getProductsDetails
 }

@@ -1,56 +1,38 @@
+import { useParams } from "react-router-dom";
 import {
   DeliveryIcon,
   HeartIcon,
   ReturnIcon,
   StarIcon,
 } from "../../../../components";
+import { useGetProductDetails } from "../../../../hooks";
 
 const Details = () => {
+  const { id } = useParams();
+  const { data, isLoading } = useGetProductDetails(Number(id));
+
+  if (isLoading) {
+    return <div>loading ...</div>;
+  }
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row gap-4 lg:gap-4 lg:h-[600px] mt-[100px]">
       <div className="basis-[100%] lg:basis-2/3  flex flex-col-reverse lg:flex-row gap-[30px]">
         <div className="flex flex-row flex-wrap lg:flex-col gap-[30px]">
-          <div className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] p-2 flex justify-center items-center">
-            <div className="w-[112px] h-[97px]">
-              <img
-                src="/assets/images/bag.png"
-                alt="product"
-                className="w-full h-full"
-              />
+          {data?.images?.map((item: string) => (
+            <div
+              className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] p-2 flex justify-center items-center"
+              key={item}
+            >
+              <div className="w-[112px] h-[97px]">
+                <img src={item} alt="product" className="w-full h-full" />
+              </div>
             </div>
-          </div>
-          <div className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] flex justify-center items-center">
-            <div className="w-[112px] h-[97px]">
-              <img
-                src="/assets/images/bag.png"
-                alt="product"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-          <div className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] flex justify-center items-center">
-            <div className="w-[112px] h-[97px]">
-              <img
-                src="/assets/images/bag.png"
-                alt="product"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-          <div className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] flex justify-center items-center">
-            <div className="w-[112px] h-[97px]">
-              <img
-                src="/assets/images/bag.png"
-                alt="product"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
+          ))}
         </div>
         <div className="bg-[#F5F5F5] rounded-[4px] w-full lg:w-[500px] h-[300px] lg:h-[600px] flex justify-center items-center">
           <div className="w-[300px] h-[300px]">
             <img
-              src="/assets/images/bag.png"
+              src={data?.thumbnail}
               alt="product"
               className="w-full h-full object-contain"
             />
@@ -59,9 +41,7 @@ const Details = () => {
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h3 className="text-black font-semibold text-2xl">
-            Havic HV G-92 Gamepad
-          </h3>
+          <h3 className="text-black font-semibold text-2xl">{data?.title}</h3>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
               <div className="flex items-center">
@@ -71,18 +51,19 @@ const Details = () => {
                   </span>
                 ))}
               </div>
-              <div className="text-black/50 text-sm">(150 Reviews)</div>
+              <div className="text-black/50 text-sm">
+                ({data?.reviews?.length} Reviews)
+              </div>
             </div>
             <div className="text-sm text-black/50">
-              | <span className="text-sm text-[#00FF66]/60">In Stock</span>
+              |{" "}
+              <span className="text-sm text-[#00FF66]/60">
+                {data?.availabilityStatus}
+              </span>
             </div>
           </div>
-          <span className="text-black text-2xl">$192.00</span>
-          <p className="text-black text-sm">
-            PlayStation 5 Controller Skin High quality vinyl with air channel
-            adhesive for easy bubble free install & mess free removal Pressure
-            sensitive.
-          </p>
+          <span className="text-black text-2xl">${data?.price}</span>
+          <p className="text-black text-sm">{data?.description}</p>
         </div>
         <div className="bg-black/50 w-full m-0 p-0 h-[1px]"></div>
         <div className="flex flex-col gap-8">
