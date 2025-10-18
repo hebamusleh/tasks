@@ -14,6 +14,7 @@ export { default as HeadphoneIcon } from "./headphone-icon";
 export { default as HeartIcon } from "./heart-icon";
 export { default as InstaIcon } from "./insta-icon";
 export { default as LinkedinIcon } from "./linkedin-icon";
+export { default as ReturnIcon } from "./return-icon";
 export { default as SearchIcon } from "./search-icon";
 export { default as SecureIcon } from "./secure-icon";
 export { default as SendIcon } from "./send-icon";
