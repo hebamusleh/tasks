@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import type { InferType } from "yup";
 import { Button, GoogleIcon, Input } from "../../../components";
-import { PATHS } from "../../../constant";
+import { PATHS } from "../../../enums";
 import { signUpSchema } from "../../../utils";
 
 type SignUpFormValues = InferType<typeof signUpSchema>;

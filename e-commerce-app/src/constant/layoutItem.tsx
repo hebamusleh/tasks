@@ -3,8 +3,8 @@ import {
   SocialGroup,
 } from "../components/layout/footer/components";
 import EmailInput from "../components/layout/footer/components/EmailInput";
+import { PATHS } from "../enums";
 import type { IFooterGroup, INavItem } from "../types";
-import { PATHS } from "./paths";
 
 export const navItems: INavItem[] = [
   {

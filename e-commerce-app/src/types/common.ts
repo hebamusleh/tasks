@@ -25,7 +25,7 @@ export interface IDropdown {
 }
 
 export interface IProductCard {
-  id: string;
+  id: string | number;
   cover: string;
   newItem?: boolean;
   offer?: number;
@@ -39,7 +39,6 @@ export interface IProductCard {
 export interface ICategoryCard {
   id: string;
   title: string;
-  icon: React.ReactNode;
 }
 
 export interface ICTACard {

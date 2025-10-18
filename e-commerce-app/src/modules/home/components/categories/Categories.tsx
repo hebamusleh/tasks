@@ -1,10 +1,13 @@
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { CategoryCard, TitleHeading } from "../../../../components";
-import { categories } from "../../../../constant/categories";
+import { useGetCategories } from "../../../../hooks";
 import SubHeader from "./SubHeader";
 
 const Categories = () => {
+  const { data, isLoading } = useGetCategories();
+
+  console.log("data ", data);
   return (
     <div className="flex flex-col gap-[60px] border-b-[0.5px] border-black/30 pb-20">
       <div>
@@ -48,11 +51,17 @@ const Categories = () => {
           },
         }}
       >
-        {categories.map((item) => (
-          <SwiperSlide key={item.id} className="!w-[170px]">
-            <CategoryCard {...item} />
-          </SwiperSlide>
-        ))}
+        {isLoading
+          ? [...Array(7)].map((_, index) => (
+              <SwiperSlide key={index} className="!w-[170px]">
+                <div>loading...</div>
+              </SwiperSlide>
+            ))
+          : data.map((item: { slug: string; name: string }) => (
+              <SwiperSlide key={item.slug} className="!w-[170px]">
+                <CategoryCard title={item.name} id={item.slug} />
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

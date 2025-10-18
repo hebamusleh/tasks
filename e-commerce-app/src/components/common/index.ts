@@ -8,6 +8,8 @@ import TitleHeading from "./title-heading/TitleHeading";
 import Input from './input/Input';
 import ErrorMessage from './error-message/ErrorMessage';
 import AlertMessage from './alert-message/AlertMessage';
+export * from './skeleton'
+
 export {
   Button,
   CategoryCard,

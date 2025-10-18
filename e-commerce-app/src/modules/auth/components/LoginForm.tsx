@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import type { InferType } from "yup";
 import { Button, Input } from "../../../components";
-import { PATHS } from "../../../constant";
 import { loginSchema } from "../../../utils";
+import { PATHS } from "../../../enums";
 
 type LoginFormValues = InferType<typeof loginSchema>;
 const LoginForm = () => {
