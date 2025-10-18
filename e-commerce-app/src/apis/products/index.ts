@@ -1,5 +1,1 @@
-import { getProducts , getProductsDetails } from './products.api';
-export {
-    getProducts,
-    getProductsDetails
-}
+export * from "./products.api";
