@@ -9,3 +9,12 @@ export const getCategories = async () => {
     throw mapAxiosError(e);
   }
 };
+
+export const getProductsByCategory = async (category: string) => {
+  try {
+    const res = await axios.get(`/products/category/${category}`);
+    return res.data.products;
+  } catch (e) {
+    throw mapAxiosError(e);
+  }
+};

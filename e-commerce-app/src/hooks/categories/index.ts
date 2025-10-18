@@ -1,2 +1,3 @@
 import { useGetCategories } from "./useGetCategories.hook";
-export { useGetCategories };
+import { useGetProductsByCategories } from "./useGetProductByCategory.hook";
+export { useGetCategories, useGetProductsByCategories };

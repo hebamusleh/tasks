@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { IProductCard } from "../../../types";
 import { EyeIcon, HeartIcon, StarIcon } from "../../icons";
 
 const ProductCard: React.FC<IProductCard> = ({
+  id,
   cover,
   oldPrice,
   price,
@@ -14,9 +15,13 @@ const ProductCard: React.FC<IProductCard> = ({
   colorsOption,
 }) => {
   const [activeColor, setActiveColor] = useState<string>("red");
+  const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-4 w-full md:w-[270px]">
+    <div
+      className="flex flex-col gap-4 w-full md:w-[270px]"
+      onClick={() => navigate(`/products/${id}`)}
+    >
       <div className="rounded-[4px] bg-[#F5F5F5] relative h-[250px] w-full group">
         {/* background image  */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -24,7 +29,11 @@ const ProductCard: React.FC<IProductCard> = ({
         </div>
         {/* content on image  */}
         <div className="h-full w-full flex flex-col justify-between">
-          <div className={`flex p-3 ${!offer && ! newItem ? "justify-end":"justify-between"}`}>
+          <div
+            className={`flex p-3 ${
+              !offer && !newItem ? "justify-end" : "justify-between"
+            }`}
+          >
             {/* offer  */}
             {offer && (
               <div className="p-3 bg-[#DB4444] rounded-[4px] text-xs text-white h-[26px] flex items-center justify-center">

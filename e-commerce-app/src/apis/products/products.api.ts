@@ -20,3 +20,4 @@ export const getProductsDetails = async (id: number) => {
     throw mapAxiosError(e);
   }
 };
+

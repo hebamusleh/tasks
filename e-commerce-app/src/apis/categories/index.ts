@@ -1,2 +1,2 @@
-import { getCategories } from "./categories.api";
-export { getCategories };
+import { getCategories, getProductsByCategory } from "./categories.api";
+export { getCategories, getProductsByCategory };
