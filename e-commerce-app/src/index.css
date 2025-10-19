@@ -24,3 +24,6 @@
 .swiper-pagination-bullet-active {
   @apply !bg-[#DB4444] !border-white;
 }
+.box-shadow { 
+  box-shadow: 0px 1px 13px 0px #0000000D;
+}

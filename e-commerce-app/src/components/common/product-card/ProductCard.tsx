@@ -37,7 +37,7 @@ const ProductCard: React.FC<IProductCard> = ({
             {/* offer  */}
             {offer && (
               <div className="p-3 bg-[#DB4444] rounded-[4px] text-xs text-white h-[26px] flex items-center justify-center">
-                -{offer}%
+                -{offer.toFixed(2)}%
               </div>
             )}
             {/* new product  */}
@@ -77,7 +77,7 @@ const ProductCard: React.FC<IProductCard> = ({
           <span className="text-[#DB4444] font-medium">${price}</span>
           {oldPrice && (
             <span className="text-black/50 line-through font-medium">
-              ${oldPrice}
+              ${oldPrice.toFixed(2)}
             </span>
           )}
         </div>
