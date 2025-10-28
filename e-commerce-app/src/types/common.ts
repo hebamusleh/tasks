@@ -87,3 +87,16 @@ export interface IAlertMessage {
   className?: string;
   type: "success" | "error";
 }
+
+export interface ICheckbox {
+  name: string;
+  control: Control<any>;
+  label?: string | React.ReactNode;
+  rules?: any;
+  required?: boolean;
+  disabled?: boolean;
+  className?: string;
+  labelClassName?: string;
+  customIcon?: React.ReactNode;
+  error?: any;
+}

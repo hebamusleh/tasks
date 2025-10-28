@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components";
+import { PATHS } from "../../enums";
 
 const Cart = () => {
+  const navigate = useNavigate();
   return (
     <div className="container my-20 ">
       <div className="flex flex-col gap-10 lg:gap-20">
@@ -79,7 +82,9 @@ const Cart = () => {
               <span>$1750</span>
             </div>
             <div className="flex items-center justify-center">
-              <Button>Procees to checkout</Button>
+              <Button onClick={() => navigate(PATHS.CHECKOUT)}>
+                Process to checkout
+              </Button>
             </div>
           </div>
         </div>

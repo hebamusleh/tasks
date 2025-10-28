@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   DeliveryIcon,
@@ -10,18 +11,27 @@ import { useGetProductDetails } from "../../../../hooks";
 const Details = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetProductDetails(Number(id));
+  const [image, setImage] = useState<string>();
+
+  useEffect(() => {
+    if (data && data?.images.length > 0) {
+      setImage(data.images[0]);
+    }
+  }, [data]);
 
   if (isLoading) {
     return <div>loading ...</div>;
   }
+
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row gap-4 lg:gap-4 lg:h-[600px] mt-[100px]">
       <div className="basis-[100%] lg:basis-2/3  flex flex-col-reverse lg:flex-row gap-[30px]">
         <div className="flex flex-row flex-wrap lg:flex-col gap-[30px]">
           {data?.images?.map((item: string) => (
             <div
-              className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] p-2 flex justify-center items-center"
+              className="bg-[#F5F5F5] w-[45%] lg:w-[170px] h-[138px] rounded-[4px] p-2 flex justify-center items-center cursor-pointer"
               key={item}
+              onClick={() => setImage(item)}
             >
               <div className="w-[112px] h-[97px]">
                 <img src={item} alt="product" className="w-full h-full" />
@@ -32,7 +42,7 @@ const Details = () => {
         <div className="bg-[#F5F5F5] rounded-[4px] w-full lg:w-[500px] h-[300px] lg:h-[600px] flex justify-center items-center">
           <div className="w-[300px] h-[300px]">
             <img
-              src={data?.thumbnail}
+              src={image}
               alt="product"
               className="w-full h-full object-contain"
             />

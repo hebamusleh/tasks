@@ -1,10 +1,7 @@
-import React from 'react'
-
+import { Checkout } from "../../modules";
 
 const CheckoutPage = () => {
-  return (
-    <div>CheckoutPage</div>
-  )
-}
+  return <Checkout />;
+};
 
-export default CheckoutPage
+export default CheckoutPage;

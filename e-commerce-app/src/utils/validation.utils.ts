@@ -27,3 +27,20 @@ export const signUpSchema = baseAuthSchema.concat(
     name: yup.string().required("Name is required"),
   })
 );
+
+export const checkoutSchema = yup.object({
+  fullName: yup.string().required("Full name is required"),
+  companyName: yup.string().required("Company name is required"),
+  streetAddress: yup.string().required("Street address is required"),
+  apartment: yup.string().optional(),
+  city: yup.string().required("City is required"),
+  phoneNumber: yup
+    .string()
+    .required("Phone number is required")
+    .matches(/^[0-9+\-() ]+$/, "Invalid phone number"),
+  emailAddress: yup
+    .string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  savedInformation: yup.boolean().optional(),
+});

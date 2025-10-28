@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navItems } from "../../../constant";
+import { PATHS } from "../../../enums";
 import { CartIcon, HeartIcon, SearchIcon } from "../../icons";
 
 const BottomHeader = () => {
   const [active, setActive] = useState("Home");
+  const navigate = useNavigate();
 
   return (
     <div className="border-b-[.5px] border-black/30 mt-10 pb-7 ">
@@ -39,7 +41,7 @@ const BottomHeader = () => {
             <span>
               <HeartIcon className="w-6 h-6 cursor-pointer" />
             </span>
-            <span>
+            <span onClick={() => navigate(PATHS.CART)}>
               <CartIcon className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
