@@ -1,9 +1,13 @@
-import React from 'react'
+import { Categories, Hero, Jobs } from "./sections";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <Hero />
+      <Categories />
+      <Jobs />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
