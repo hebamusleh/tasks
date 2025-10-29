@@ -7,11 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "svgr": "npx @svgr/cli -d src/components/icons public/assets/icons --icon --typescript --memo --filename-case kebab"
   },
   "dependencies": {
+    "@svgr/cli": "^8.1.0",
+    "@tailwindcss/vite": "^4.1.16",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.4",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
