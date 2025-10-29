@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useCartStore } from "../../../store";
 import type { IProductCard } from "../../../types";
 import { EyeIcon, HeartIcon, StarIcon } from "../../icons";
 
@@ -15,13 +16,11 @@ const ProductCard: React.FC<IProductCard> = ({
   colorsOption,
 }) => {
   const [activeColor, setActiveColor] = useState<string>("red");
-  const navigate = useNavigate();
+  const { addToCart, cart } = useCartStore();
+  const item = cart.find((i) => i.id === id);
 
   return (
-    <div
-      className="flex flex-col gap-4 w-full md:w-[270px]"
-      onClick={() => navigate(`/products/${id}`)}
-    >
+    <div className="flex flex-col gap-4 w-full md:w-[270px]">
       <div className="rounded-[4px] bg-[#F5F5F5] relative h-[250px] w-full group">
         {/* background image  */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -55,7 +54,7 @@ const ProductCard: React.FC<IProductCard> = ({
               </div>
               <div className="w-9 h-9 rounded-full bg-white flex justify-center items-center cursor-pointer group/icon transition-all duration-300 hover:bg-black">
                 <Link
-                  to={"#"}
+                  to={`/products/${id}`}
                   className="transition-all duration-300 group-hover/icon:text-white"
                 >
                   <EyeIcon />
@@ -63,9 +62,12 @@ const ProductCard: React.FC<IProductCard> = ({
               </div>
             </div>
           </div>
-          <button className="font-medium text-white text-center w-full py-2 bg-black cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-br-[4px] rounded-bl-[4px]">
+          <button
+            className="font-medium text-white text-center w-full py-2 bg-black cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-br-[4px] rounded-bl-[4px]"
+            onClick={() => addToCart({ cover, title, price, id })}
+          >
             {" "}
-            Add To Cart
+            {item ? "Added " : " Add To Cart"}
           </button>
         </div>
       </div>
