@@ -7,11 +7,15 @@ import {
   StarIcon,
 } from "../../../../components";
 import { useGetProductDetails } from "../../../../hooks";
+import { useCartStore } from "../../../../store";
 
 const Details = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetProductDetails(Number(id));
+  const [quantity, setQuantity] = useState(0);
   const [image, setImage] = useState<string>();
+  const { addToCart, updateQuantity, cart } = useCartStore();
+  const existInCart = cart.find((i) => i.id === data.id);
 
   useEffect(() => {
     if (data && data?.images.length > 0) {
@@ -94,18 +98,40 @@ const Details = () => {
           {/* cart  */}
           <div className="flex items-center gap-4">
             <div className="rounded-[4px] h-[40px] w-[40%] min-w-[159px] flex items-center justify-between">
-              <span className="px-5 border-[1px] border-black hover:border-[#DB4444] h-[40px] rounded-bl-[4px] rounded-tl-[4px] cursor-pointer flex items-center justify-center duration-300 transition-all hover:bg-[#DB4444] hover:text-white">
+              <span
+                className="px-5 border-[1px] border-black hover:border-[#DB4444] h-[40px] rounded-bl-[4px] rounded-tl-[4px] cursor-pointer flex items-center justify-center duration-300 transition-all hover:bg-[#DB4444] hover:text-white"
+                onClick={() => {
+                  setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+                  updateQuantity(data.id, quantity);
+                }}
+              >
                 <span className="text-xl font-medium cursor-pointer">-</span>
               </span>
               <span className="border-t-[1px] w-full flex items-center justify-center border-b-[1px] border-black h-[40px]">
-                <span>0</span>
+                <span>{quantity}</span>
               </span>
-              <span className="px-5 border-[1px] border-black hover:border-[#DB4444] rounded-br-[4px] rounded-tr-[4px]  h-[40px] flex items-center justify-center cursor-pointer duration-300 transition-all hover:bg-[#DB4444] hover:text-white">
+              <span
+                className="px-5 border-[1px] border-black hover:border-[#DB4444] rounded-br-[4px] rounded-tr-[4px]  h-[40px] flex items-center justify-center cursor-pointer duration-300 transition-all hover:bg-[#DB4444] hover:text-white"
+                onClick={() => {
+                  setQuantity((prev) => prev + 1);
+                  updateQuantity(data.id, quantity);
+                }}
+              >
                 <span className="text-xl font-medium cursor-pointer">+</span>
               </span>
             </div>
-            <button className="w-[40%] cursor-pointer min-w-[165px] h-10 bg-[#DB4444] rounded-[4px] font-medium text-white flex items-center justify-center">
-              <span>Buy Now</span>
+            <button
+              className="w-[40%] cursor-pointer min-w-[165px] h-10 bg-[#DB4444] rounded-[4px] font-medium text-white flex items-center justify-center"
+              onClick={() =>
+                addToCart({
+                  id: data.id,
+                  cover: data.images[0],
+                  title: data.title,
+                  price: data.price,
+                })
+              }
+            >
+              <span>{existInCart ? "Added To Cart" : "Buy Now"}</span>
             </button>
             <div className="rounded-[4px] border-[1px] border-black w-10 h-10 flex items-center justify-center">
               <span className="text-xl">

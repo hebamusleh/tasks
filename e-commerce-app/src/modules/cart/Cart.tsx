@@ -125,7 +125,7 @@ const Cart = () => {
             </div>
             <div className="w-full flex justify-between py-4">
               <span className="text-black">Total:</span>
-              <span>${subTotal.toFixed(2) + 10}</span>
+              <span>${(subTotal + 10).toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-center">
               <Button onClick={() => navigate(PATHS.CHECKOUT)}>

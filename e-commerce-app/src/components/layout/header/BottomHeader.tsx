@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { navItems } from "../../../constant";
 import { PATHS } from "../../../enums";
 import { CartIcon, HeartIcon, SearchIcon } from "../../icons";
+import { useCartStore } from "../../../store";
 
 const BottomHeader = () => {
   const [active, setActive] = useState("Home");
+  const {cart} = useCartStore();
   const navigate = useNavigate();
 
   return (
@@ -41,7 +43,10 @@ const BottomHeader = () => {
             <span>
               <HeartIcon className="w-6 h-6 cursor-pointer" />
             </span>
-            <span onClick={() => navigate(PATHS.CART)}>
+            <span onClick={() => navigate(PATHS.CART)} className="relative">
+              <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center text-white absolute -top-2 -left-1">
+                <span className="text-[10px]">{cart.length}</span>
+              </span>
               <CartIcon className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
