@@ -50,7 +50,7 @@ const JobDetails = () => {
           <div className="flex flex-col gap-3">
             {group1.map((item) => (
               <div className="flex items-center gap-2">
-                <span className="text-xl font-medium text-black">
+                <span className="md:text-xl font-medium text-black">
                   {item.title}:
                 </span>
                 <span>{item.answer}</span>
