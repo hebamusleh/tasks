@@ -1,0 +1,83 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pagination-link {
+  font-size: 16px;
+  border: 1px solid #338573;
+  height: 32px;
+  width: 32px;
+  line-height: 18.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pagination-item {
+  background-color: white/50;
+  border-radius: 8px;
+}
+
+.pagination-item.active {
+  background-color: #338573;
+  border-color: #338573;
+}
+
+.pagination-item .pagination-link,
+.pagination__last-item,
+.pagination__first-item {
+  border: 1px solid #338573;
+  background-color: white/50;
+  color: #338573;
+  border-radius: 8px;
+}
+.pagination-item.active .pagination-link {
+  border: #338573;
+  background-color: #338573/60;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.pagination-link .pagination__breakLine {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.pagination__prevLink,
+.pagination__nextLink {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.pagination-item.disabled .pagination-link {
+  cursor: default;
+  color: #ccc;
+  background-color: white/50;
+}
+
+.pagination__nextLink,
+.pagination__prevLink {
+  border: 1px solid #d9dce0;
+  color: #ccc;
+  border-radius: 8px;
+}
+
+.pagination__nextLink {
+  rotate: 0;
+}
+
+.pagination__prevLink {
+  rotate: 180deg;
+}
+
+.pagination__first-item {
+  font-size: 19px;
+  rotate: 180deg;
+}
+.pagination__last-item {
+  font-size: 19px;
+  rotate: 0;
+}
