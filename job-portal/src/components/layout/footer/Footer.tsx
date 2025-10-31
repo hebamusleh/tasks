@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="w-full flex items-center justify-center py-4 bg-[#338573]">
-      <span className="text-xl text-white">
+      <span className="text-sm text-center md:text-xl text-white">
         © 2025 Jobs Portal. Designed By Wilson Kinyua.
       </span>
     </div>
