@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components";
+import { PATHS } from "../../../enum";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full h-[90vh] relative">
       <div className="absolute inset-0 w-full h-[90vh] -z-10">
@@ -27,7 +30,7 @@ const Hero = () => {
                 className="w-full outline-none border-none placeholder:text-[#AEB0B4] placeholder:text-[18px] px-7 py-2 placeholder:font-bold"
                 placeholder="Search by job title......................"
               />
-              <Button>Search</Button>
+              <Button onClick={() => navigate(PATHS.DASHBOARD)}>Search</Button>
             </div>
           </div>
         </div>

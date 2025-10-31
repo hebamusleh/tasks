@@ -1,43 +1,65 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import {
-  ConfirmModal,
-  EditIcon,
-  Table,
-  TrashIcon,
-  VeiwIcon,
-} from "../../components";
+import { useNavigate } from "react-router-dom";
+import { EditIcon, Table, TrashIcon, VeiwIcon } from "../../components";
+import { PATHS, QUERIES } from "../../enum";
+import { useDeleteJob, useGetJobs } from "../../hooks";
+import { useJobStore, useModalStore } from "../../store";
+import { UnProcessableEntityError } from "../../types";
 
-const jobs = {
-  docs: [
-    {
-      title: "ttt",
-      type: "mm",
-      date: "11/11/2022",
-      deadline: "90",
-    },
-  ],
-  totalPages: 2,
-  count: 10,
-};
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [modal, setModal] = useState<{
-    open: boolean;
-    title: string;
-    message: string;
-    primaryBtn?: string;
-    handleClick?: () => void;
-  }>({
-    open: false,
-    title: "",
-    message: "",
-  });
+  const { modal, setModal } = useModalStore();
+  const { setJob } = useJobStore();
+
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  // fetch data :
+  const { data, isLoading } = useGetJobs();
+  const itemsPerPage = 10;
+  const count = data?.length;
+  const totalPages = Math.ceil(count / itemsPerPage);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = data?.slice(startIndex, endIndex);
+
+  // delete
+  const { mutate, isPending } = useDeleteJob();
 
   const handlePageChange = (e: { selectedPage: number }) =>
     setCurrentPage(e.selectedPage);
 
-  const handleDelete = () => {
-    console.log("delete");
+  const handleDelete = (id: string) => {
+    mutate(id, {
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: [QUERIES.JOBS],
+        });
+        setModal({
+          open: true,
+          title: "Delete Done Successfully",
+          message: "Your job was delete successfully",
+        });
+      },
+      onError: (e) => {
+        if (e instanceof UnProcessableEntityError) {
+          setModal({
+            open: true,
+            title: "Delete Failure",
+            message: e.message,
+          });
+          return;
+        }
+        setModal({
+          open: true,
+          title: "Delete Failure",
+          message: e.message || "Something went wrong , plz try again",
+        });
+      },
+    });
   };
 
   return (
@@ -67,7 +89,9 @@ const Dashboard = () => {
               accessor: "date",
               width: "15%",
               minWidth: "150px",
-              cell: (item: any) => <div>{item?.date}</div>,
+              cell: (item: any) => (
+                <div>{new Date(item.createdAt).toLocaleDateString()}</div>
+              ),
             },
             {
               title: "Application Deadline",
@@ -83,10 +107,19 @@ const Dashboard = () => {
               minWidth: "150px",
               cell: (item: any) => (
                 <div className="flex items-center gap-2">
-                  <span className="cursor-pointer">
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => navigate(`/jobs/${item.id}`)}
+                  >
                     <VeiwIcon color="#338573" width={20} height={20} />
                   </span>
-                  <span className="cursor-pointer">
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => {
+                      navigate(PATHS.POST);
+                      setJob(item);
+                    }}
+                  >
                     <EditIcon color="#04BCF6" width={20} height={20} />
                   </span>
                   <span
@@ -96,9 +129,10 @@ const Dashboard = () => {
                         message: `Are you sure you want to delete ${item.title} job?`,
                         title: "Confirm Delete !",
                         open: true,
-                        primaryBtn: "Delete",
+                        primaryBtn: isPending ? "Loading..." : "Delete",
                         handleClick() {
-                          handleDelete();
+                          handleDelete(item.id);
+                          setModal({ ...modal, open: false });
                         },
                       })
                     }
@@ -110,24 +144,19 @@ const Dashboard = () => {
             },
           ]}
           data={{
-            docs: jobs.docs,
+            docs: paginatedData,
             currentPage,
-            totalPages: jobs.totalPages,
+            totalPages: totalPages,
             limit: 10,
-            count: jobs.count,
+            count: count,
           }}
-          isLoading={false}
+          isLoading={isLoading}
           showPagination
           onPageChange={handlePageChange}
           clickUrl={""}
           text="No categories added yet"
         />
       </div>
-      <ConfirmModal
-        show={modal.open}
-        onClose={() => setModal({ ...modal, open: false })}
-        {...modal}
-      />
     </div>
   );
 };

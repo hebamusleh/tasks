@@ -20,11 +20,11 @@ const ConfirmModal = ({
 }: Props) => {
   return (
     <Modal handleClose={onClose} show={show} showCloseIcon={false}>
-      <div className="flex flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col gap-4 items-center justify-center h-full">
         <h3 className="text-2xl font-bold leading-[100%] text-[#338573]">
           {title}
         </h3>
-        <p className="text-[#338573] font-medium">{message}</p>
+        <p className="text-[#338573] font-medium text-center">{message}</p>
         {primaryBtn && (
           <div className="flex items-center justify-center gap-4">
             <Button className="!py-2" onClick={handleClick}>

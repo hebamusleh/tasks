@@ -32,7 +32,7 @@ const Modal: React.FC<Props> = ({
       }}
     >
       <div
-        className={`overflow-y-auto opacity-0 translate-y-1 shadow-sm rounded-[10px] bg-white w-full  md:w-[757px] duration-500 w min-h-[200px] p-[24px] py-[28px] ${
+        className={`overflow-y-auto opacity-0 translate-y-1 shadow-sm rounded-[10px] bg-white w-full  md:w-[500px] duration-500 w min-h-[200px] p-[24px] py-[28px] flex items-center justify-center ${
           show ? "!opacity-100 !translate-y-0" : ""
         } ${className}`}
         onClick={(e) => {

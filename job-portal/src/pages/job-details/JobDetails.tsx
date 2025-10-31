@@ -1,42 +1,42 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import { Button } from "../../components";
-import { jobs } from "../../constant";
+import { useGetJobDetails } from "../../hooks";
 
 const JobDetails = () => {
   const { id } = useParams();
-  const job = jobs.find((item) => item.id === id);
+  const { data, isLoading } = useGetJobDetails(id!);
   const group1 = [
     {
       title: "Minimum Qualification",
-      answer: job?.qualification,
+      answer: data?.qualification || "Bachelor in Software Engineering",
     },
     {
       title: "Experience Level",
-      answer: job?.level,
-    },
-    {
-      title: "Experience Length",
-      answer: job?.length,
+      answer: data?.experience || "over 2 years",
     },
     {
       title: "Location",
-      answer: job?.location,
-    },
-    {
-      title: "Application Deadline",
-      answer: job?.deadLine,
+      answer: data?.location,
     },
     {
       title: "Salary Range",
-      answer: job?.salary,
+      answer: data?.salary,
     },
   ];
+  if (isLoading)
+    return (
+      <div className="min-h-screen items-center justify-center container">
+        <div className="text-center">isLoading ...</div>
+      </div>
+    );
   return (
     <div>
       <div className="py-4 bg-[#F4F5F7]">
         <h3 className="title container text-center">
-          {job?.title}
-          <span className="md:text-xl ">({job?.time})</span>- Match Company
+          {data?.title}
+          <span className="md:text-xl ">({data?.type})</span>- Match{" "}
+          {data?.company}
           Limited
         </h3>
       </div>
@@ -61,30 +61,22 @@ const JobDetails = () => {
           {/* group-2  */}
           <div className="flex flex-col gap-3">
             <h4 className="text-xl font-bold">Job Description:</h4>
-            <p className=" font-light">{job?.description}</p>
+            <p className=" font-light">{data?.description}</p>
           </div>
           <hr className="bg-[#5f585896] border-none h-[1px]" />
           {/* group-3 */}
           <div className="flex flex-col gap-3">
             <h4 className="text-xl font-bold">Requirements:</h4>
             <ul className="list-disc">
-              {job?.requirement.map((item, index) => (
-                <li className="font-light" key={index}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <hr className="bg-[#5f585896] border-none h-[1px]" />
-          {/* group-4  */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-xl font-bold">Responsibilities:</h4>
-            <ul className="list-disc">
-              {job?.responsibilities.map((item, index) => (
-                <li className="font-light" key={index}>
-                  {item}
-                </li>
-              ))}
+              {data?.requirement?.length > 0 ? (
+                data?.requirement.map((item: any, index: number) => (
+                  <li className="font-light" key={index}>
+                    {item}
+                  </li>
+                ))
+              ) : (
+                <div>Coming soon ... </div>
+              )}
             </ul>
           </div>
         </div>
